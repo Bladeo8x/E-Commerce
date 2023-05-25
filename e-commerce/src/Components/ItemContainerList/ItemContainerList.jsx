@@ -9,7 +9,7 @@ function ListHeader({ greeting }) {
         <Col xs="auto" className="text-center">
           <h1>{greeting}</h1>
           <p xs="auto">visitors | 0</p>
-          <h7 xs="auto" style={{ fontStyle: 'italic', fontSize: 'smaller' }}>"cup of coffee, code, repeat"</h7>
+          <h6 xs="auto" style={{ fontStyle: 'italic', fontSize: 'smaller' }}>"cup of coffee, code, repeat"</h6>
           </Col>
       </Row>
     </Container>
