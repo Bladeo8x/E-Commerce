@@ -1,5 +1,5 @@
 import React from 'react';
-import Shopping_Cart01 from './assets/Shopping_Cart01.svg';
+import Shopping_Cart01 from '/assets/Shopping_Cart01.svg';
 
 const CartWidget = () => {
   return (

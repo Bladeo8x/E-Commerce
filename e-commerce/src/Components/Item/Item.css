@@ -1,0 +1,8 @@
+.square-image {
+    width: 100%;
+    padding-bottom: auto;
+    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
