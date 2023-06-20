@@ -10,6 +10,7 @@ import {useParams} from 'react-router-dom'
 function ItemContainerList({ greeting }) {
 
 const [products, setProducts] = useState([])
+const [visitors, setVisitors] = useState(0);
 
 const { categoryId } = useParams()
 
@@ -25,13 +26,18 @@ useEffect (() => {
   })
 }, [categoryId])
 
+useEffect(() => {
+  // Simulating an increase in visitors whenever the component mounts
+  setVisitors((prevVisitors) => prevVisitors + 1);
+}, []);
+
 return (
   <Container className="d-flex flex-column align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
     <Row className="justify-content-center mb-4">
       <Col xs="auto" className="text-center">
         <h1 className='mt-4'>{greeting}</h1>
         {/* Mi intencion es poder activar el contador para los visitantes de la pagina en un futuro, por el momento lo dejo hardcodeado */}
-        <p>visitors | 0</p>
+        <p>Visitors | {visitors}</p>
         <h6 style={{ fontStyle: 'italic', fontSize: 'smaller' }}>"cup of coffee, code, repeat"</h6>
       </Col>
     </Row>
