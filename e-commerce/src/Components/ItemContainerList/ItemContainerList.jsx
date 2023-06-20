@@ -29,7 +29,7 @@ return (
   <Container className="d-flex flex-column align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
     <Row className="justify-content-center mb-4">
       <Col xs="auto" className="text-center">
-        <h1>{greeting}</h1>
+        <h1 className='mt-4'>{greeting}</h1>
         {/* Mi intencion es poder activar el contador para los visitantes de la pagina en un futuro, por el momento lo dejo hardcodeado */}
         <p>visitors | 0</p>
         <h6 style={{ fontStyle: 'italic', fontSize: 'smaller' }}>"cup of coffee, code, repeat"</h6>

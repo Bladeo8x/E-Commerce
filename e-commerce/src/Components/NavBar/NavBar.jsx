@@ -6,13 +6,12 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import TeaCup from '/assets/TeaCup.png';
 import { NavLink, Link } from 'react-router-dom';
 
-
 function NavBar() {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container>
-        <Link to="/">
-          <Navbar.Brand href="#home" className="d-flex align-items-center">
+      <NavLink to="/" className="text-decoration-none text-reset">
+          <Navbar.Brand className="d-flex align-items-center">
             <div className="d-flex align-items-center">
               <img
                 src={TeaCup}
@@ -25,7 +24,7 @@ function NavBar() {
               <span>eco-Fi</span>
             </div>
           </Navbar.Brand>
-        </Link>
+        </NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-auto" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav className="ms-auto">
