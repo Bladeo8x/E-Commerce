@@ -27,7 +27,6 @@ useEffect (() => {
 }, [categoryId])
 
 useEffect(() => {
-  // Simulating an increase in visitors whenever the component mounts
   setVisitors((prevVisitors) => prevVisitors + 1);
 }, []);
 
@@ -36,12 +35,10 @@ return (
     <Row className="justify-content-center mb-4">
       <Col xs="auto" className="text-center">
         <h1 className='mt-4'>{greeting}</h1>
-        {/* Mi intencion es poder activar el contador para los visitantes de la pagina en un futuro, por el momento lo dejo hardcodeado */}
         <p>Visitors | {visitors}</p>
         <h6 style={{ fontStyle: 'italic', fontSize: 'smaller' }}>"cup of coffee, code, repeat"</h6>
       </Col>
     </Row>
-    {/* Cree este row para ver si podia alinear los contadores de alguna forma, sin que se desalineen por over-text, no succeed*/}
     <Row className="justify-content-center">
     <Col lg={12} className="mb-4">
     <ItemList products={products} />

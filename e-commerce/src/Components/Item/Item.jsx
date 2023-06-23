@@ -14,11 +14,10 @@ const Item = ({ id, name, price, category, img, stock, description }) => {
         <p className='square-image'>Price: ${price}</p>
         <p className='square-image'>Category: {category}</p>
         <p className='square-image'>Stock: {stock}</p>
-        {/* para la description, no e podido lograr ajustar el texto automaticamente para que no se pierda texto de la descripcion, sin alterar el contador que se desalinea con los otros si quito el ''text-truncate'' */}
         <p className='square-image center text-truncate'>{description}</p> 
         <div>
-          <Link to={`/item/${id}`} className="btn btn-light square-image">
-          See Details
+        <Link to={`/item/${id}`} className="btn btn-light square-image">
+        See Details
         </Link>
         </div>
         <footer className='mt-4'>

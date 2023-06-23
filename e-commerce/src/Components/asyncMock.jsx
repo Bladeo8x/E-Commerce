@@ -3,7 +3,7 @@ const products = [
         id: '1',
         name: 'Brown Sugar Milk',
         price: 120,
-        category: 'Cold Drinks',
+        category: 'cold-drinks',
         img: '/assets/BrownSugarMilk.jpg',
         stock: 15,
         description: 'Fresh Milk with Brown Sugar Pearls'
@@ -12,7 +12,7 @@ const products = [
         id: '2',
         name: 'Salted Caramel Coffee',
         price: 100,
-        category: 'Hot Drinks',
+        category: 'hot-drinks',
         img: '/assets/SaltedCaramel.jpg',
         stock: 20,
         description: 'Hot Coffee with Salted Caramel flavor'
@@ -21,7 +21,7 @@ const products = [
         id: '3',
         name: 'Cheese-Brule Brown Sugar',
         price: 150,
-        category: 'Signature Drinks',
+        category: 'signature-drinks',
         img: '/assets/CheeseBrule.jpg',
         stock: 10,
         description: 'Sweet milk flavor, with cheese brule and brown sugar pearls'

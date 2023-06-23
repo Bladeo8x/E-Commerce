@@ -4,7 +4,7 @@ import { Row, Col } from 'react-bootstrap';
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
   return (
     <Row className="justify-content-center">
-      <Col xs={12} md={6} lg={4} className="text-center mb-4">
+      <Col xs={3} className="text-center mb-4">
         <header className="Header">
           <h2 className="ItemHeader square-image mt-2">{name}</h2>
         </header>

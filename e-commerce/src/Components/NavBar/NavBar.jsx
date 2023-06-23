@@ -33,13 +33,13 @@ function NavBar() {
             </Nav.Link>
             <Nav.Link href="#link">About Us</Nav.Link>
             <NavDropdown title="Drinks" id="basic-nav-dropdown">
-              <NavDropdown.Item as={NavLink} to="/cold-drinks">
+              <NavDropdown.Item as={NavLink} to="category/cold-drinks">
                 Cold Drinks
               </NavDropdown.Item>
-              <NavDropdown.Item as={NavLink} to="/hot-drinks">
+              <NavDropdown.Item as={NavLink} to="category/hot-drinks">
                 Hot Drinks
               </NavDropdown.Item>
-              <NavDropdown.Item as={NavLink} to="/signature">
+              <NavDropdown.Item as={NavLink} to="category/signature-drinks">
                 Signature
               </NavDropdown.Item>
               <NavDropdown.Divider />
