@@ -1,7 +1,20 @@
 import ItemCount from '../ItemCount/ItemCount';
 import { Row, Col } from 'react-bootstrap';
+import { useState } from 'react';
 
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
+const [quantityAdded, setQuantityAdded] = useState (0)
+
+const handleOnAdd = (quantity) => {
+  setQuantityAdded = (quantity)
+
+  const item = {
+    id, name, price
+  }
+
+  addItem(item, quantity)
+}
+
   return (
     <Row className="justify-content-center">
       <Col xs={3} className="text-center mb-4">
@@ -16,8 +29,15 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
           <p className="Info square-image">Description: {description}</p>
           <p className="Info square-image">Price: ${price}</p>
         </section>
+
         <footer className="ItemFooter square-image">
-          <ItemCount initial={1} stock={stock} onAdd={(quantity) => console.log('Cantidad agregada')} />
+          {
+            quantityAdded > 0 ? (
+              <Link to= '/cart' className= 'Option'>Finish Purchase</Link>
+            ) : (
+              <ItemCount initial = {1} stock={stock} onAdd={handleOnAdd}/>
+            )
+          }
         </footer>
       </Col>
     </Row>

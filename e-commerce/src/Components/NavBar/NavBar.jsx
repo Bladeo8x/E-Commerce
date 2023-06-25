@@ -43,7 +43,7 @@ function NavBar() {
                 Signature
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Merchandise</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="category/merchandise">Merchandise</NavDropdown.Item>
             </NavDropdown>
             <CartWidget />
           </Nav>

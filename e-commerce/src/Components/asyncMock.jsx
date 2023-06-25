@@ -26,6 +26,15 @@ const products = [
         stock: 10,
         description: 'Sweet milk flavor, with cheese brule and brown sugar pearls'
     },
+    {
+        id: '4',
+        name: 'T-Shirt eco-Fi',
+        price: 500,
+        category: 'merchandise',
+        img: '/assets/CheeseBrule.jpg',
+        stock: 5,
+        description: 'ecoFi Merchandise'
+    },
 ];
 
 export const getProducts = () => {
