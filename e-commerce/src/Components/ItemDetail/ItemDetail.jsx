@@ -1,19 +1,24 @@
+import { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { CartContext } from '../../Context/CartContext';
 import ItemCount from '../ItemCount/ItemCount';
 import { Row, Col } from 'react-bootstrap';
-import { useState } from 'react';
 
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
-const [quantityAdded, setQuantityAdded] = useState (0)
+  const [quantityAdded, setQuantityAdded] = useState(0);
+  const { cart, addItem } = useContext(CartContext);
 
-const handleOnAdd = (quantity) => {
-  setQuantityAdded = (quantity)
+  const handleOnAdd = (quantity) => {
+    setQuantityAdded(quantity);
 
-  const item = {
-    id, name, price
-  }
+    const item = {
+      id,
+      name,
+      price,
+    };
 
-  addItem(item, quantity)
-}
+    addItem(item, quantity);
+  };
 
   return (
     <Row className="justify-content-center">
