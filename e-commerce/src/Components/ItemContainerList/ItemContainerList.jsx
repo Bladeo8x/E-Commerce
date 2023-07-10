@@ -1,34 +1,44 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import {useState, useEffect} from 'react'
-import { getProducts, getProductsByCategory } from '../asyncMock';
+import { useState, useEffect } from 'react';
+import { getDocs, collection, query, where } from 'firebase/firestore';
+import { db } from '../../Services/Firebase/firebaseConfig';
 import ItemList from '../ItemList/ItemList';
-import {useParams} from 'react-router-dom'
-
+import { useParams } from 'react-router-dom';
 
 function ItemContainerList({ greeting }) {
+  const [products, setProducts] = useState([]);
+  const [visitors, setVisitors] = useState(0);
+  const [loading, setLoading] = useState(true);
 
-const [products, setProducts] = useState([])
-const [visitors, setVisitors] = useState(0);
+  const { categoryId } = useParams();
 
-const { categoryId } = useParams()
+useEffect(() => {
+  const productsRef = !categoryId
+  ? collection(db, 'products')
+  : query(collection(db, 'products'), where('category','==', categoryId))
 
-useEffect (() => {
-  const asyncFunc = categoryId ? getProductsByCategory : getProducts
-
-  asyncFunc(categoryId)
-  .then(response => {
-    setProducts(response)
-  })
-  .catch(error => {
-    console.error(error)
-  })
-}, [categoryId])
+  getDocs(productsRef)
+    .then((querySnapshot) => {
+      const productsAdapted = querySnapshot.docs.map((doc) => {
+        const fields = doc.data();
+        return { id: doc.id, ...fields };
+      });
+      setProducts(productsAdapted);
+    })
+    .finally(() => {
+      setLoading(false);
+    });
+}, [categoryId]);
 
 useEffect(() => {
   setVisitors((prevVisitors) => prevVisitors + 1);
 }, []);
+
+if (loading) {
+  return <div>Loading...</div>;
+}
 
 return (
   <Container className="d-flex flex-column align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
