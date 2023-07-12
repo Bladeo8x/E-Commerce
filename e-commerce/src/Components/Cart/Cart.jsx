@@ -6,6 +6,8 @@ import { Button, Container } from "react-bootstrap";
 
 const Cart = () => {
   const { cart, clearCart, total, totalQuantity } = useContext(CartContext);
+  const emptyCartButtonClasses = "btn btn-danger";
+
 
   if (totalQuantity === 0) {
     return (
@@ -33,6 +35,7 @@ const Cart = () => {
         </Button>
       </div>
     </Container>
+    
   );
 };
 

@@ -11,8 +11,8 @@ const Item = ({ id, name, price, category, img, stock, description }) => {
       <div className="item">
         <img src={img} alt={name} className="img-thumbnail square-image" />
         <h3 className='square-image text-truncate'>{name}</h3>
-        <p className='square-image'>Price: ${price}</p>
-        <p className='square-image'>Category: {category}</p>
+        {/* <p className='square-image'>Price: ${price}</p> */}
+        {/* <p className='square-image'>Category: {category}</p> */}
         <p className='square-image'>Stock: {stock}</p>
         <p className='square-image center text-truncate'>{description}</p> 
         <div>
@@ -20,9 +20,6 @@ const Item = ({ id, name, price, category, img, stock, description }) => {
         See Details
         </Link>
         </div>
-        <footer className='mt-4'>
-        <ItemCount stock={stock} initial={1} onAdd={handleAddToCart} />
-        </footer>
       </div>
     );
   };

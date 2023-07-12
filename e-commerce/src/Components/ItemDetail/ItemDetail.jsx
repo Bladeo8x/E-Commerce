@@ -30,7 +30,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
           <img src={img} alt={name} className="img-thumbnail square-image img-fluid" />
         </picture>
         <section>
-          <p className="Info square-image">Category: {category}</p>
+          {/* <p className="Info square-image">Category: {category}</p> */}
           <p className="Info square-image">Description: {description}</p>
           <p className="Info square-image">Price: ${price}</p>
         </section>
