@@ -14,48 +14,69 @@ function ItemContainerList({ greeting }) {
 
   const { categoryId } = useParams();
 
-useEffect(() => {
-  const productsRef = !categoryId
-  ? collection(db, 'products')
-  : query(collection(db, 'products'), where('category','==', categoryId))
+  useEffect(() => {
+    const productsRef = !categoryId
+      ? collection(db, 'products')
+      : query(collection(db, 'products'), where('category', '==', categoryId));
 
-  getDocs(productsRef)
-    .then((querySnapshot) => {
-      const productsAdapted = querySnapshot.docs.map((doc) => {
-        const fields = doc.data();
-        return { id: doc.id, ...fields };
+    getDocs(productsRef)
+      .then((querySnapshot) => {
+        const productsAdapted = querySnapshot.docs.map((doc) => {
+          const fields = doc.data();
+          return { id: doc.id, ...fields };
+        });
+        setProducts(productsAdapted);
+      })
+      .finally(() => {
+        setLoading(false);
       });
-      setProducts(productsAdapted);
-    })
-    .finally(() => {
-      setLoading(false);
-    });
-}, [categoryId]);
+  }, [categoryId]);
 
-useEffect(() => {
-  setVisitors((prevVisitors) => prevVisitors + 1);
-}, []);
+  useEffect(() => {
+    setVisitors((prevVisitors) => prevVisitors + 1);
+  }, []);
 
-if (loading) {
-  return <div>Loading...</div>;
-}
-
-return (
-  <Container className="d-flex flex-column align-items-center justify-content-center" style={{ minHeight: '100vh' }}>
-    <Row className="justify-content-center mb-4">
-      <Col xs="auto" className="text-center">
-        <h1 className='mt-4'>{greeting}</h1>
-        <p>Visitors | {visitors}</p>
-        <h6 style={{ fontStyle: 'italic', fontSize: 'smaller' }}>"cup of coffee, code, repeat"</h6>
-      </Col>
-    </Row>
-    <Row className="justify-content-center" style={{width: "100%"}}>
-    <Col lg={12} className="mb-4">
-    <ItemList products={products} />
+  if (loading) {
+    return (
+      <Container className="d-flex flex-column align-items-center justify-content-center vh-100">
+        <Row className="justify-content-center">
+          <Col xs="auto" className="text-center">
+            <h1 className="mt-4">{greeting}</h1>
+            <p>
+              Visitors: <span className="visitor-count">{visitors}</span>
+            </p>
+            <h6 style={{ fontStyle: 'italic', fontSize: 'smaller' }}>"Cup of coffee, code, repeat"</h6>
           </Col>
-    </Row>
-  </Container>
-);
+        </Row>
+        <Row className="justify-content-center">
+          <Col xs="auto" className="mt-4">
+            <div className="spinner-border text-primary" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    );
+  }
+
+  return (
+    <Container className="d-flex flex-column align-items-center justify-content-center vh-100">
+      <Row className="justify-content-center mb-4">
+        <Col xs="auto" className="text-center">
+          <h1 className="mt-4">{greeting}</h1>
+          <p>
+            Visitors: <span className="visitor-count">{visitors}</span>
+          </p>
+          <h6 style={{ fontStyle: 'italic', fontSize: 'smaller' }}>"Cup of coffee, code, repeat"</h6>
+        </Col>
+      </Row>
+      <Row className="justify-content-center">
+        <Col lg={12} className="mb-4">
+          <ItemList products={products} />
+        </Col>
+      </Row>
+    </Container>
+  );
 }
 
 export default ItemContainerList;

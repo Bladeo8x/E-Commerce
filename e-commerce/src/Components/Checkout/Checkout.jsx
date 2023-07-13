@@ -100,47 +100,50 @@ const Checkout = () => {
   return (
     <Container className="text-center">
       <h1>Checkout</h1>
-      <h2>Formulary</h2>
       <div className="mb-3">
-        <label htmlFor="name" className="form-label">
-          Name
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="name"
-          name="name"
-          value={buyerInfo.name}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="phone" className="form-label">
-          Phone
-        </label>
-        <input
-          type="text"
-          className="form-control"
-          id="phone"
-          name="phone"
-          value={buyerInfo.phone}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="mb-3">
-        <label htmlFor="email" className="form-label">
-          Email
-        </label>
-        <input
-          type="email"
-          className="form-control"
-          id="email"
-          name="email"
-          value={buyerInfo.email}
-          onChange={handleChange}
-        />
-      </div>
-      <Button onClick={createOrder} disabled={loading}>
+  <label htmlFor="name" className="form-label">
+    Name
+  </label>
+  <input
+    type="text"
+    className="form-control text-center"
+    id="name"
+    name="name"
+    value={buyerInfo.name}
+    onChange={handleChange}
+    style={{ maxWidth: '300px', margin: '0 auto' }}
+  />
+</div>
+<div className="mb-3">
+  <label htmlFor="phone" className="form-label">
+    Phone
+  </label>
+  <input
+    type="text"
+    className="form-control text-center"
+    id="phone"
+    name="phone"
+    value={buyerInfo.phone}
+    onChange={handleChange}
+    style={{ maxWidth: '300px', margin: '0 auto' }}
+  />
+</div>
+<div className="mb-3">
+  <label htmlFor="email" className="form-label">
+    Email
+  </label>
+  <input
+    type="email"
+    className="form-control text-center"
+    id="email"
+    name="email"
+    value={buyerInfo.email}
+    onChange={handleChange}
+    style={{ maxWidth: '300px', margin: '0 auto' }}
+  />
+</div>
+
+      <Button onClick={createOrder} disabled={loading} className="mt-2">
         {loading ? (
           <Spinner animation="border" role="status" size="sm">
             <span className="visually-hidden">Loading...</span>
