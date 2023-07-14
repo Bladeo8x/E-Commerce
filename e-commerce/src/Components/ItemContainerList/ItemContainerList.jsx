@@ -1,11 +1,11 @@
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import { useState, useEffect } from 'react';
-import { getDocs, collection, query, where } from 'firebase/firestore';
-import { db } from '../../Services/Firebase/firebaseConfig';
-import ItemList from '../ItemList/ItemList';
-import { useParams } from 'react-router-dom';
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import { useState, useEffect } from "react";
+import { getDocs, collection, query, where } from "firebase/firestore";
+import { db } from "../../Services/Firebase/firebaseConfig";
+import ItemList from "../ItemList/ItemList";
+import { useParams } from "react-router-dom";
 
 function ItemContainerList({ greeting }) {
   const [products, setProducts] = useState([]);
@@ -16,8 +16,8 @@ function ItemContainerList({ greeting }) {
 
   useEffect(() => {
     const productsRef = !categoryId
-      ? collection(db, 'products')
-      : query(collection(db, 'products'), where('category', '==', categoryId));
+      ? collection(db, "products")
+      : query(collection(db, "products"), where("category", "==", categoryId));
 
     getDocs(productsRef)
       .then((querySnapshot) => {
@@ -45,7 +45,9 @@ function ItemContainerList({ greeting }) {
             <p>
               Visitors: <span className="visitor-count">{visitors}</span>
             </p>
-            <h6 style={{ fontStyle: 'italic', fontSize: 'smaller' }}>"Cup of coffee, code, repeat"</h6>
+            <h6 style={{ fontStyle: "italic", fontSize: "smaller" }}>
+              "Cup of coffee, code, repeat"
+            </h6>
           </Col>
         </Row>
         <Row className="justify-content-center">
@@ -67,10 +69,12 @@ function ItemContainerList({ greeting }) {
           <p>
             Visitors: <span className="visitor-count">{visitors}</span>
           </p>
-          <h6 style={{ fontStyle: 'italic', fontSize: 'smaller' }}>"Cup of coffee, code, repeat"</h6>
+          <h6 style={{ fontStyle: "italic", fontSize: "smaller" }}>
+            "Cup of coffee, code, repeat"
+          </h6>
         </Col>
       </Row>
-      <Row className="justify-content-center" style={{width:"100%"}}>
+      <Row className="justify-content-center" style={{ width: "100%" }}>
         <Col lg={12} className="mb-4">
           <ItemList products={products} />
         </Col>

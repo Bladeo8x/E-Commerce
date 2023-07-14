@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Col } from 'react-bootstrap';
+import { useState } from "react";
+import { Col } from "react-bootstrap";
 
 const CartItem = ({ id, name, price, quantity, img }) => {
   const [quantityAdded, setQuantityAdded] = useState(0);
@@ -17,16 +17,27 @@ const CartItem = ({ id, name, price, quantity, img }) => {
         <img src={img} alt={name} className="img-thumbnail square-image" />
       </td>
       <td className="text-center">
-        <h3 className="square-image text-truncate mt-2" style={{ fontSize: 'medium' }}>{name}</h3>
+        <h3
+          className="square-image text-truncate mt-2"
+          style={{ fontSize: "medium" }}
+        >
+          {name}
+        </h3>
       </td>
       <td className="text-center">
-        <p className="square-image mt-2" style={{ fontSize: 'medium' }}>Quantity: {quantity}</p>
+        <p className="square-image mt-2" style={{ fontSize: "medium" }}>
+          Quantity: {quantity}
+        </p>
       </td>
       <td className="text-center">
-        <p className="square-image mt-2" style={{ fontSize: 'medium' }}>Price: ${price}</p>
+        <p className="square-image mt-2" style={{ fontSize: "medium" }}>
+          Price: ${price}
+        </p>
       </td>
       <td className="text-center">
-        <p className="square-image mt-2" style={{ fontSize: 'medium' }}>Subtotal: ${subtotal}</p>
+        <p className="square-image mt-2" style={{ fontSize: "medium" }}>
+          Subtotal: ${subtotal}
+        </p>
       </td>
     </tr>
   );

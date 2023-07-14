@@ -1,9 +1,9 @@
-import { useState, useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { CartContext } from '../../Context/CartContext';
-import ItemCount from '../ItemCount/ItemCount';
-import { Row, Col, Spinner } from 'react-bootstrap';
-import Swal from 'sweetalert2';
+import { useState, useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { CartContext } from "../../Context/CartContext";
+import ItemCount from "../ItemCount/ItemCount";
+import { Row, Col, Spinner } from "react-bootstrap";
+import Swal from "sweetalert2";
 
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
   const [quantityAdded, setQuantityAdded] = useState(0);
@@ -26,9 +26,9 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
     addItem(item, quantity);
 
     Swal.fire({
-      icon: 'success',
-      title: 'Item Added',
-      text: 'The item has been added to your cart',
+      icon: "success",
+      title: "Item Added",
+      text: "The item has been added to your cart",
     });
   };
 
@@ -51,7 +51,11 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
           <h2 className="ItemHeader square-image mt-2">{name}</h2>
         </header>
         <picture>
-          <img src={img} alt={name} className="img-thumbnail square-image img-fluid" />
+          <img
+            src={img}
+            alt={name}
+            className="img-thumbnail square-image img-fluid"
+          />
         </picture>
         <section>
           <p className="Info square-image">Category: {category}</p>
@@ -62,7 +66,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
         <footer className="ItemFooter square-image">
           {quantityAdded > 0 ? (
             <>
-                         <Link to="/" className="btn btn-dark ml-2 me-2">
+              <Link to="/" className="btn btn-dark ml-2 me-2">
                 Add Another Item
               </Link>
               <Link to="/cart" className="btn btn-dark">

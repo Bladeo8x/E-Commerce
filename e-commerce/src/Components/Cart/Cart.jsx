@@ -36,19 +36,18 @@ const Cart = () => {
           ))}
         </tbody>
       </Table>
-      <div className="d-flex justify-content-between align-items-center">
-      <div className="d-grid gap-3">
-          <Button onClick={() => clearCart()} variant="danger">
-            Empty Cart
-          </Button>
-          <Button as={Link} to="/checkout" variant="dark">
-            Checkout
-          </Button>
-        </div>
+      <div className="d-flex justify-content-end me-5 align-items-center">
         <div>
           <h3>Total: ${total}</h3>
         </div>
-
+      </div>
+      <div className="d-flex gap-3 justify-content-center align-items-center">
+        <Button onClick={() => clearCart()} variant="danger">
+          Empty Cart
+        </Button>
+        <Button as={Link} to="/checkout" variant="dark">
+          Checkout
+        </Button>
       </div>
     </Container>
   );

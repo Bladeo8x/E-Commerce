@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 const ItemCount = ({ stock, initial, onAdd }) => {
   const [quantity, setQuantity] = useState(initial);
@@ -24,7 +24,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
         <input
           type="number"
           className="text-center"
-          style={{ maxWidth: '42px' }}
+          style={{ maxWidth: "42px" }}
           value={quantity}
           readOnly
         />
