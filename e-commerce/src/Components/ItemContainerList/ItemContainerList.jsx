@@ -70,7 +70,7 @@ function ItemContainerList({ greeting }) {
           <h6 style={{ fontStyle: 'italic', fontSize: 'smaller' }}>"Cup of coffee, code, repeat"</h6>
         </Col>
       </Row>
-      <Row className="justify-content-center">
+      <Row className="justify-content-center" style={{width:"100%"}}>
         <Col lg={12} className="mb-4">
           <ItemList products={products} />
         </Col>

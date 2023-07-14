@@ -1,9 +1,7 @@
-import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import '../Item/Item.css';
-import ItemCount from '../ItemCount/ItemCount';
+import { Col } from 'react-bootstrap';
 
-const CartItem = ({ id, name, price, quantity, img, category, stock, description }) => {
+const CartItem = ({ id, name, price, quantity, img }) => {
   const [quantityAdded, setQuantityAdded] = useState(0);
 
   const handleAddToCart = (quantity) => {
@@ -11,26 +9,26 @@ const CartItem = ({ id, name, price, quantity, img, category, stock, description
     onAdd(quantity);
   };
 
+  const subtotal = quantity * price;
+
   return (
-    <div className="item">
-      <img src={img} alt={name} className="img-thumbnail square-image" />
-      <h3 className='square-image text-truncate'>{name}</h3>
-      <p className='square-image'>Price: ${price}</p>
-      <p className='square-image'>Category: {category}</p>
-      <p className='square-image'>Stock: {stock}</p>
-      <p className='square-image center text-truncate'>{description}</p>
-      <div>
-        <Link to={`/item/${id}`} className="btn btn-light square-image">
-          See Details
-        </Link>
-      </div>
-      <footer className='mt-4'>
-        <ItemCount stock={stock} initial={1} onAdd={handleAddToCart} />
-        <div>
-          <button onClick={() => handleAddToCart(quantityAdded)}>Add</button>
-        </div>
-      </footer>
-    </div>
+    <tr>
+      <td className="text-center">
+        <img src={img} alt={name} className="img-thumbnail square-image" />
+      </td>
+      <td className="text-center">
+        <h3 className="square-image text-truncate mt-2" style={{ fontSize: 'medium' }}>{name}</h3>
+      </td>
+      <td className="text-center">
+        <p className="square-image mt-2" style={{ fontSize: 'medium' }}>Quantity: {quantity}</p>
+      </td>
+      <td className="text-center">
+        <p className="square-image mt-2" style={{ fontSize: 'medium' }}>Price: ${price}</p>
+      </td>
+      <td className="text-center">
+        <p className="square-image mt-2" style={{ fontSize: 'medium' }}>Subtotal: ${subtotal}</p>
+      </td>
+    </tr>
   );
 };
 
