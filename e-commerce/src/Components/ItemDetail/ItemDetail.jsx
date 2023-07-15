@@ -21,6 +21,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
       id,
       name,
       price,
+      img,
     };
 
     addItem(item, quantity);
@@ -54,7 +55,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
           <img
             src={img}
             alt={name}
-            className="img-thumbnail square-image img-fluid"
+            className="img-thumbnail img-fluid"
           />
         </picture>
         <section>

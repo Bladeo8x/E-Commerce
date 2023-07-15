@@ -14,28 +14,28 @@ const CartItem = ({ id, name, price, quantity, img }) => {
   return (
     <tr>
       <td className="text-center">
-        <img src={img} alt={name} className="img-thumbnail square-image" />
+        <img src={img} alt={name} className="img-thumbnail square-image" style={{width:'100px', height:'auto'}} />
       </td>
       <td className="text-center">
         <h3
-          className="square-image text-truncate mt-2"
+          className="square-image text-truncate mt-5"
           style={{ fontSize: "medium" }}
         >
           {name}
         </h3>
       </td>
       <td className="text-center">
-        <p className="square-image mt-2" style={{ fontSize: "medium" }}>
+        <p className="square-image mt-5" style={{ fontSize: "medium" }}>
           Quantity: {quantity}
         </p>
       </td>
       <td className="text-center">
-        <p className="square-image mt-2" style={{ fontSize: "medium" }}>
+        <p className="square-image mt-5" style={{ fontSize: "medium" }}>
           Price: ${price}
         </p>
       </td>
       <td className="text-center">
-        <p className="square-image mt-2" style={{ fontSize: "medium" }}>
+        <p className="square-image mt-5" style={{ fontSize: "medium" }}>
           Subtotal: ${subtotal}
         </p>
       </td>
